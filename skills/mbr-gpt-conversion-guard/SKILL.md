@@ -53,37 +53,43 @@ For this skill, run:
 scripts/install-epm.cmd mbr-gpt-conversion-guard
 ```
 
-If you prefer a direct link, use:
+If you prefer manual human interaction, use:
 <https://down.easeus.com/product/epm_free?source=skills&dest=mbr-gpt-conversion-guard>
 
 ## Troubleshooting
 
 ### Script Fails to Download Installer
 
-* Re-run `scripts/install-epm.cmd <Dest>` in an elevated terminal.
-* Verify outbound access to `down.easeus.com`.
-* If your network uses a proxy, configure system proxy first and retry.
+* Re-run `scripts/install-epm.cmd <Dest>` in an elevated terminal
+* Verify network access and allow download endpoints in firewall or endpoint policy
 
-### Installer Runs but App Is Not Found
+### Install Directory or Binary Is Missing
 
-* Check default install directory: `C:\Program Files\EaseUS\EaseUS Partition Master`.
-* If not present, also check `C:\Program Files (x86)\EaseUS\EaseUS Partition Master`.
-* Re-run install script and review installer exit code output.
+* Check `C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`
+* If missing, check `C:\Program Files (x86)\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`
+* If both are missing, rerun `scripts/install-epm.cmd <Dest>` and confirm installer exit code is `0`
+
+### Cross-Shell Launch Command (cmd and PowerShell)
+
+Use this one-liner from either terminal to validate path, set the working directory, and trigger UAC:
+
+```cmd
+cd /d "C:\Program Files\EaseUS\EaseUS Partition Master\bin" && start "" EPMUI.exe
+```
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe'; if(-not (Test-Path $p)){$p='C:\Program Files (x86)\EaseUS\EaseUS Partition Master\bin\EPMUI.exe'}; if(-not (Test-Path $p)){throw 'EPMUI.exe not found'}; Start-Process -FilePath $p -WorkingDirectory (Split-Path $p) -Verb RunAs"
+```
 
 ### Permission or Security Blocks
 
-* Run terminal as Administrator before executing the script.
-* Approve User Account Control prompts during setup.
-* Allow the installer in antivirus or endpoint policy.
-
-### App Does Not Launch
-
-* Reboot Windows and launch EaseUS Partition Master again.
-* Reinstall using `scripts/install-epm.cmd <Dest>`.
-* Update storage controller and chipset drivers if launch failures continue.
+* Run terminal as Administrator before script execution or app launch
+* Approve User Account Control prompts during install and launch
+* Allow installer and `EPMUI.exe` in antivirus or endpoint policy
 
 ### Launch Validation Checks
 
-* Confirm EaseUS Partition Master opens without errors.
-* Confirm the target disk appears before any write operation.
-* Confirm your planned operation preview matches expected outcome.
+* Confirm `EPMUI.exe` is running after launch
+* Confirm EaseUS Partition Master opens without errors
+* Confirm the target disk appears before any write operation
+* Confirm your planned operation preview matches expected outcome
