@@ -2,38 +2,40 @@
 setlocal EnableExtensions
 
 set "DEST_ARG=%~1"
-if "%DEST_ARG%"=="" (
-  echo Usage: scripts\install-epm.cmd ^<Dest^>
-  echo Example: scripts\install-epm.cmd <skill-slug>
-  exit /b 64
-)
+for /f "tokens=1* delims==" %%A in ("%DEST_ARG%") do if /I "%%~A"=="dest" set "DEST_ARG=%%~B"
+if "%DEST_ARG%"=="" set "DEST_ARG=test"
 
-if /I "%DEST_ARG:~0,5%"=="dest=" set "DEST_ARG=%DEST_ARG:~5%"
-if "%DEST_ARG%"=="" (
-  echo Error: Dest cannot be empty.
-  exit /b 64
-)
-
-set "DOWNLOAD_URL=https://down.easeus.com/product/epm_free?source=skills&dest=%DEST_ARG%"
 set "DEST_DIR=%TEMP%\EuUpdater_EPM"
 set "DEST_PATH=%DEST_DIR%\epm_free_setup.exe"
-set "DEFAULT_INSTALL_DIR=%ProgramFiles%\EaseUS\EaseUS Partition Master"
-set "X86_INSTALL_DIR=%ProgramFiles(x86)%\EaseUS\EaseUS Partition Master"
 
-if not exist "%DEST_DIR%" mkdir "%DEST_DIR%"
+if not exist "%DEST_DIR%" (
+  mkdir "%DEST_DIR%"
+)
 
 echo [1/2] Downloading installer...
 where curl >nul 2>&1
 if %errorlevel%==0 (
-  curl -fL --retry 3 --retry-delay 2 -o "%DEST_PATH%" "%DOWNLOAD_URL%"
+  set "USE_CURL=1"
 ) else (
-  powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri '%DOWNLOAD_URL%' -OutFile '%DEST_PATH%'"
+  set "USE_CURL=0"
 )
 
-if errorlevel 1 (
-  echo Download failed.
-  exit /b 1
+for %%H in (d1 d2 d3) do (
+  if exist "%DEST_PATH%" del /f /q "%DEST_PATH%" >nul 2>&1
+  echo Trying mirror %%H...
+  if "%USE_CURL%"=="1" (
+    curl -fL --retry 3 --retry-delay 2 -o "%DEST_PATH%" "https://%%H.easeus.com/epm/free/epm_free_ob.exe?source=skills&dest=%DEST_ARG%"
+  ) else (
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://%%H.easeus.com/epm/free/epm_free_ob.exe?source=skills&dest=%DEST_ARG%' -OutFile '%DEST_PATH%'"
+  )
+
+  if not errorlevel 1 if exist "%DEST_PATH%" goto :download_ok
 )
+
+echo Download failed from all mirrors.
+exit /b 1
+
+:download_ok
 
 if not exist "%DEST_PATH%" (
   echo Installer was not found: "%DEST_PATH%"
@@ -46,18 +48,8 @@ set "INSTALL_EXIT_CODE=%errorlevel%"
 
 if not "%INSTALL_EXIT_CODE%"=="0" (
   echo Installer exited with code %INSTALL_EXIT_CODE%.
-  exit /b %INSTALL_EXIT_CODE%
-)
-
-if exist "%DEFAULT_INSTALL_DIR%" (
-  echo Installation completed. Found app at: "%DEFAULT_INSTALL_DIR%"
-) else if exist "%X86_INSTALL_DIR%" (
-  echo Installation completed. Found app at: "%X86_INSTALL_DIR%"
 ) else (
-  echo Installation completed. App path was not detected automatically.
-  echo Expected default path: "C:\Program Files\EaseUS\EaseUS Partition Master"
+  echo Installation completed.
 )
 
-exit /b 0
-
-
+exit /b %INSTALL_EXIT_CODE%
