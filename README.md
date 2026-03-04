@@ -40,7 +40,7 @@ Claude Code: "Use this Skill to check my disk health."
 * Post-migration validation: [post-migration-validator](skills/post-migration-validator/SKILL.md)
 * Write-protection removal: [write-protection-unlock-assistant](skills/write-protection-unlock-assistant/SKILL.md)
 
-See the full Skill Routing Map in [SKILL.md](SKILL.md).
+See the full Skill Routing Map in [SKILL.md](SKILL.md#skill-routing-map).
 
 ## Troubleshooting
 
