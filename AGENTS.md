@@ -1,0 +1,1 @@
+C:/Users/w10/Desktop/Repos/easeus-skills/.github/copilot-instructions.md
