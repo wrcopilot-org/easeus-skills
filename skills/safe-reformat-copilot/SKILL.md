@@ -60,7 +60,6 @@ If you prefer manual human interaction, use:
 ### Install Directory or Binary Is Missing
 
 * Check `C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`
-* If missing, check `C:\ProS\EaseUS Partition Master\bin\EPMUI.exe`
 * If both are missing, rerun `scripts/install-epm.cmd <Dest>` and confirm installer exit code is `0`
 
 ### Cross-Shell Launch Command (cmd and PowerShell)
