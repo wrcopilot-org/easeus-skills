@@ -35,6 +35,9 @@ Helps you triage disk and partition health issues before any write action. It is
 
 ## CTA
 
+> [!IMPORTANT]
+> Run the following commands from the **skill directory** (e.g., `skills/disk-health-guardian/`). Running from elsewhere will cause the script to not be found.
+
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
 
 ```bat

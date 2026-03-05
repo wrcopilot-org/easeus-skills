@@ -36,6 +36,9 @@ Identifies why a drive is write-protected and guides you through the safest unlo
 
 ## CTA
 
+> [!IMPORTANT]
+> Run the following commands from the **skill directory** (e.g., `skills/write-protection-unlock-assistant/`). Running from elsewhere will cause the script to not be found.
+
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
 
 ```bat

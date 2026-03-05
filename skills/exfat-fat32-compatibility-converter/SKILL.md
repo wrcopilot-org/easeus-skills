@@ -35,6 +35,9 @@ Helps you choose and execute exFAT or FAT32 compatibility paths based on target 
 
 ## CTA
 
+> [!IMPORTANT]
+> Run the following commands from the **skill directory** (e.g., `skills/exfat-fat32-compatibility-converter/`). Running from elsewhere will cause the script to not be found.
+
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
 
 ```bat

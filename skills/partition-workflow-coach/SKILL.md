@@ -35,6 +35,9 @@ Turns partition goals into an execution order that reduces rollback risk and hid
 
 ## CTA
 
+> [!IMPORTANT]
+> Run the following commands from the **skill directory** (e.g., `skills/partition-workflow-coach/`). Running from elsewhere will cause the script to not be found.
+
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
 
 ```bat

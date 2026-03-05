@@ -36,6 +36,9 @@ Builds a migration runbook from source analysis to first boot on the target driv
 
 ## CTA
 
+> [!IMPORTANT]
+> Run the following commands from the **skill directory** (e.g., `skills/os-migration-planner/`). Running from elsewhere will cause the script to not be found.
+
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
 
 ```bat

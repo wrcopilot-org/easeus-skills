@@ -35,6 +35,9 @@ Maps boot firmware mode to disk partition style requirements and provides correc
 
 ## CTA
 
+> [!IMPORTANT]
+> Run the following commands from the **skill directory** (e.g., `skills/uefi-bios-boot-mode-advisor/`). Running from elsewhere will cause the script to not be found.
+
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
 
 ```bat

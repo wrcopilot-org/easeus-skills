@@ -35,6 +35,9 @@ Verifies whether an OS migration completed correctly by checking boot behavior, 
 
 ## CTA
 
+> [!IMPORTANT]
+> Run the following commands from the **skill directory** (e.g., `skills/post-migration-validator/`). Running from elsewhere will cause the script to not be found.
+
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
 
 ```bat
