@@ -61,8 +61,8 @@ If installation or usage issues occur, check the support center first:
   * Path: `skills/resize-move-partition-coach/SKILL.md`
 * `safe-reformat-copilot`: Backup gates, risk labeling, and post-check validation before reformatting.
   * Path: `skills/safe-reformat-copilot/SKILL.md`
-* `split-c-drive-coach`: Split an oversized C drive into safer system and data partitions without reinstalling Windows.
-  * Path: `skills/split-c-drive-coach/SKILL.md`
+* `split-drive-coach`: Split oversized partitions into cleaner system, data, or backup layouts without data loss.
+  * Path: `skills/split-drive-coach/SKILL.md`
 * `uefi-bios-boot-mode-advisor`: Recommendations for matching UEFI/BIOS boot mode with disk partition style.
   * Path: `skills/uefi-bios-boot-mode-advisor/SKILL.md`
 * `write-protection-unlock-assistant`: Identify write-protection sources on USB/drives and apply reversible unlock steps.

@@ -1,63 +1,65 @@
 ---
-name: split-c-drive-coach
-description: Split Drive Without Data Loss - Separate OS and data partitions safely on new PCs without reinstalling Windows.
+name: split-drive-coach
+description: Split Large Partitions Without Data Loss - Divide oversized partitions into cleaner layouts for system, data, and backup workflows.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🧩
   os: Windows 10+
   keywords:
-    - split c drive without reinstall
+    - split large partition safely
     - split partition without data loss
-    - separate os and data partition
-    - create data partition from c drive
-    - c drive partition planning
+    - separate system and data workflow
+    - create data partition from free space
+    - partition layout planning
 ---
 
-Need to split one oversized C drive into cleaner system plus data partitions? This skill focuses on split workflows so you can isolate OS files, organize data, and keep operations non-destructive.
+Need to split one oversized partition into cleaner system, data, or backup segments? This skill focuses on split workflows so you can isolate workloads, organize files, and keep operations non-destructive.
 
 ## Hot Topic Angles
 
-* New PC has one huge C drive, and users want C plus D separation without reinstalling Windows.
+* New PC has one oversized partition, and users want separate system and data areas without reinstalling Windows.
 * Split operation should avoid formatting and keep existing files intact.
-* Users want to reserve safer free space boundaries before creating new data partitions.
+* Users want to reserve safer free-space boundaries before creating new partitions.
 
 ## Best Use Cases
 
-* You just bought a PC and need to split C drive into system and data partitions.
-* You want cleaner backup boundaries by separating OS and personal files.
+* You just bought a PC and need to split a large partition into system and data partitions.
+* You want cleaner backup boundaries by separating OS, data, and media partitions.
 * You need a split-first workflow before further partition layout changes.
 
 ## Capability Mapping
 
 * Split workflow core: `SplitPartition`, `CreatePartition`
+* Split pre-checks: `GetPartitionInfo`, `CheckPartitionFileSystem`
+* Post-split labeling: `ChangePartitionDriveLetter`, `ChangePartitionLabel`
 
 ## CTA
 
 > [!IMPORTANT]
-> Run the following commands from the skill directory (for example, `skills/split-c-drive-coach/`). Running from elsewhere causes script resolution failures.
+> Run the following commands from the skill directory (for example, `skills/split-drive-coach/`). Running from elsewhere causes script resolution failures.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
 
 For this skill, run:
 
 ```bat
-scripts/install-epm.cmd split-c-drive-coach
+scripts/install-epm.cmd split-drive-coach
 ```
 
 You can launch split flow through shellcmd:
 
 ```bat
-scripts/epm-shellcmd.cmd "Split Partition" D:\
+scripts/epm-shellcmd.cmd "Split Partition" E:\
 ```
 
-If `D:\` is written to the temporary file, the parameters will be written to the temporary file and passed as `shellparam`.
+The first argument is used as `shellcmd`. Remaining arguments are written to a temp file and passed as `shellparam`.
 
 ```text
 EPMUI.exe startByEpm0 "shellcmd=Split Partition" shellparam=<temp-file>
 ```
 
 If you prefer manual interaction, use:
-<https://down.easeus.com/product/epm_free?source=skills&dest=split-c-drive-coach>
+<https://down.easeus.com/product/epm_free?source=skills&dest=split-drive-coach>
 
 ## Troubleshooting
 
