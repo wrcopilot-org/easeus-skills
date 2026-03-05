@@ -1,6 +1,6 @@
 ---
 name: easeus-skills
-description: Your Ultimate Disk Problem Solver — Instantly find the perfect solution for any disk or partition issue. From boot failures to data recovery, we've got you covered.
+description: Your Personalized EaseUS Workflow Guide — Discover the optimal EaseUS solution path crafted just for you. From diagnosis to resolution, experience a tailored workflow that adapts to your unique disk and partition challenges.
 metadata:
   homepage: https://www.easeus.com/
   emoji: ⚙️
@@ -66,20 +66,10 @@ If installation or usage issues occur, check the support center first:
 
 ## Troubleshooting
 
-### Script or Download Problem
-
-* Use an elevated terminal and rerun `skills/<skill-name>/scripts/install-epm.cmd <skill-name>`.
-* Confirm network, proxy, firewall, and endpoint policy allow download traffic.
-* If script path is unavailable for your scenario, use the official download fallback: <https://www.easeus.com/partition-manager/>.
-
-### Permission or Launch Problem
-
-* Run installer and app with Administrator privileges.
-* Approve UAC prompts during installation and first launch.
-* Verify installation path under `C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`.
-
 ### Need Official Help
 
+* If you prefer an interactive experience, you can download it from the official page:
+  <https://www.easeus.com/download.htm>
 * Use EaseUS Support Center for product docs, FAQ, and guided troubleshooting:
   <https://www.easeus.com/support-center/>
 * Live Chat Support:

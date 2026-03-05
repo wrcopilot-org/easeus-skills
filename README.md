@@ -1,6 +1,6 @@
 ---
 title: EaseUS Skills
-description: Match the best EaseUS workflow first, then follow quick, risk-aware steps
+description: Your Personalized EaseUS Workflow Guide — Discover the optimal EaseUS solution path crafted just for you. From diagnosis to resolution, experience a tailored workflow that adapts to your unique disk and partition challenges.
 keywords:
   - easeus
   - skills marketplace
@@ -46,7 +46,7 @@ See the full Skill Routing Map in [SKILL.md](SKILL.md#skill-routing-map).
 
 * Run the terminal as Administrator
 * Check network, proxy, firewall, and endpoint security policies
-* If script-based installation is unavailable, download from the official page: <https://www.easeus.com/download.htm>
+* If you prefer an interactive experience, you can download it from the official page: <https://www.easeus.com/download.htm>
 
 ## Official Support
 
