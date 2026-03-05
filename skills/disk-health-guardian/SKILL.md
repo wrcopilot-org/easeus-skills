@@ -46,6 +46,12 @@ For this skill, run:
 scripts/install-epm.cmd disk-health-guardian
 ```
 
+After EaseUS Partition Master is installed, launch Disk Health directly to monitor your drive health:
+
+```bat
+cd /d "C:\Program Files\EaseUS\EaseUS Partition Master\bin" && start "" DiskHealthConsole.exe
+```
+
 If you prefer manual human interaction, use:
 <https://down.easeus.com/product/epm_free?source=skills&dest=disk-health-guardian>
 
