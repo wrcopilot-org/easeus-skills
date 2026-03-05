@@ -31,6 +31,7 @@ easeus-skills/
 │       ├── SKILL.md
 │       └── scripts/
 │           └── install-epm.cmd
+│           └── ...
 ```
 
 ## 同步维护规则

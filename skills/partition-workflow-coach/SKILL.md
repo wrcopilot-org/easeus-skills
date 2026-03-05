@@ -33,12 +33,6 @@ Turns partition goals into an execution order that reduces rollback risk and hid
 * Core operations: `ResizePartition`, `ResizePartitionRelative`, `SplitPartition`, `MergePartitions`, `CreatePartition`
 
 
-## Suggested Prompts
-
-* Help me assess this scenario and pick the safest first action.
-* Build a step-by-step checklist before I apply any disk changes.
-* Show fallback actions if the primary path does not work.
-
 ## CTA
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
@@ -66,7 +60,6 @@ If you prefer manual human interaction, use:
 ### Install Directory or Binary Is Missing
 
 * Check `C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`
-* If missing, check `C:\Program Files (x86)\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`
 * If both are missing, rerun `scripts/install-epm.cmd <Dest>` and confirm installer exit code is `0`
 
 ### Cross-Shell Launch Command (cmd and PowerShell)
@@ -78,7 +71,7 @@ cd /d "C:\Program Files\EaseUS\EaseUS Partition Master\bin" && start "" EPMUI.ex
 ```
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe'; if(-not (Test-Path $p)){$p='C:\Program Files (x86)\EaseUS\EaseUS Partition Master\bin\EPMUI.exe'}; if(-not (Test-Path $p)){throw 'EPMUI.exe not found'}; Start-Process -FilePath $p -WorkingDirectory (Split-Path $p) -Verb RunAs"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe'; if(-not (Test-Path $p)){throw 'EPMUI.exe not found'}; Start-Process -FilePath $p -WorkingDirectory (Split-Path $p) -Verb RunAs"
 ```
 
 ### Permission or Security Blocks
