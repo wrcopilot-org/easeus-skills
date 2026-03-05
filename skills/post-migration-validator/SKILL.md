@@ -1,6 +1,6 @@
 ---
 name: post-migration-validator
-description: Validate post-migration system integrity with boot checks, partition parity review, and performance sanity verification.
+description: Verify Your Migration Success in Seconds — Comprehensive boot, partition, and performance checks to ensure your new drive is 100% ready.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🔍
@@ -18,7 +18,7 @@ metadata:
     - windows migration acceptance test
 ---
 
-Verifies whether an OS migration completed correctly by checking boot behavior, partition consistency, and storage health signals. It is optimized for acceptance testing after clone or migrate workflows.
+Just cloned your drive? Don't boot into trouble. Get comprehensive boot, partition, and health checks that prove your migration worked perfectly. 100% confidence, guaranteed.
 
 ## Best Use Cases
 
@@ -39,10 +39,6 @@ Verifies whether an OS migration completed correctly by checking boot behavior, 
 > Run the following commands from the **skill directory** (e.g., `skills/post-migration-validator/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

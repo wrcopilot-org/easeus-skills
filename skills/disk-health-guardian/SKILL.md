@@ -1,9 +1,9 @@
 ---
 name: disk-health-guardian
-description: Diagnose disk health symptoms, choose non-destructive checks first, and turn raw error signals into clear next actions.
+description: Catch Disk Failures Before Disaster — Advanced bad sector detection and SMART diagnostics that catch disk problems before you lose your data.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
-  emoji: 🔍
+  emoji: 🛡️
   os: Windows 10+
   keywords:
     - disk health check windows
@@ -18,7 +18,7 @@ metadata:
     - windows storage diagnostics
 ---
 
-Helps you triage disk and partition health issues before any write action. It is designed for a zero data loss diagnostic workflow, with read-first checks and clear branching for what to do next.
+Disk health looking suspicious? Bad sectors multiplying? SMART warnings giving you nightmares? Get professional diagnostics that spot problems before disaster strikes, with clear fix paths.
 
 ## Best Use Cases
 
@@ -39,10 +39,6 @@ Helps you triage disk and partition health issues before any write action. It is
 > Run the following commands from the **skill directory** (e.g., `skills/disk-health-guardian/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

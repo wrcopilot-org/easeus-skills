@@ -1,6 +1,6 @@
 ---
 name: partition-workflow-coach
-description: Coach safe partition planning for create, resize, split, and merge operations with preflight validation and operation ordering.
+description: Master Your Disk Layout Like a Pro — Resize, split, merge, or create partitions with zero risk. Smart guidance for perfect results every time.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🔧
@@ -18,7 +18,7 @@ metadata:
     - disk layout editor guide
 ---
 
-Turns partition goals into an execution order that reduces rollback risk and hidden conflicts. It supports a zero data loss workflow framing for non-destructive layout changes when prerequisites are met.
+Need to resize, split, merge, or create partitions but don't know where to start? Get the perfect execution order — zero risk, zero data loss. Your disk layout, perfected.
 
 ## Best Use Cases
 
@@ -39,10 +39,6 @@ Turns partition goals into an execution order that reduces rollback risk and hid
 > Run the following commands from the **skill directory** (e.g., `skills/partition-workflow-coach/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

@@ -1,6 +1,6 @@
 ---
 name: mbr-gpt-conversion-guard
-description: Guard MBR and GPT conversion workflows with firmware compatibility checks, staged decision gates, and boot readiness validation.
+description: Convert Disk Types Without Breaking Your PC — Seamless MBR to GPT conversion with boot compatibility checks. No more "disk is not bootable" errors.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🛡️
@@ -18,7 +18,7 @@ metadata:
     - conversion rollback planning
 ---
 
-Prevents failed installs and boot loops caused by MBR and GPT mismatches. It focuses on compatibility-first sequencing and uses initialization actions only as explicit last-resort paths.
+Don't let MBR vs GPT ruin your install. Get seamless conversion with zero boot failures. Perfect firmware matching, zero "disk not bootable" nightmares.
 
 ## Best Use Cases
 
@@ -39,10 +39,6 @@ Prevents failed installs and boot loops caused by MBR and GPT mismatches. It foc
 > Run the following commands from the **skill directory** (e.g., `skills/mbr-gpt-conversion-guard/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

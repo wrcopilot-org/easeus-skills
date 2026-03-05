@@ -1,6 +1,6 @@
 ---
 name: read-only-drive-repair-navigator
-description: Navigate read-only file system problems with prechecks, staged repair actions, and clear criteria for when to stop and recover.
+description: Fix Read-Only Drives in Minutes — Step-by-step repair wizard that makes your inaccessible drives writable again. No data loss guaranteed.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🔧
@@ -18,7 +18,7 @@ metadata:
     - windows volume write restore
 ---
 
-Guides read-only to read-write remediation with reversible checks first, then targeted repair if needed. It uses a zero data loss process mindset for diagnostics and conditional repair branching.
+Drive suddenly became read-only? Files won't save, system won't write? Get step-by-step repair that makes your drive writable again — all data stays safe, guaranteed.
 
 ## Best Use Cases
 
@@ -40,10 +40,6 @@ Guides read-only to read-write remediation with reversible checks first, then ta
 > Run the following commands from the **skill directory** (e.g., `skills/read-only-drive-repair-navigator/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

@@ -1,6 +1,6 @@
 ---
 name: os-migration-planner
-description: Plan OS migration to SSD with readiness checks, clone-path selection, and boot continuity validation after transfer.
+description: Migrate Your Windows to a New Drive in Minutes — Clone your entire OS to SSD with zero data loss. Boot up instantly on new hardware, guaranteed.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 💾
@@ -18,7 +18,7 @@ metadata:
     - migration preflight advisor
 ---
 
-Builds a migration runbook from source analysis to first boot on the target drive. It uses a zero data loss process framing for source-preservation workflows when prerequisites are met.
+Want to move Windows to a new SSD without reinstalling everything? Get a complete migration roadmap — zero data loss, perfect boot guarantee. Your apps and files stay exactly where they are.
 
 ## Best Use Cases
 
@@ -40,10 +40,6 @@ Builds a migration runbook from source analysis to first boot on the target driv
 > Run the following commands from the **skill directory** (e.g., `skills/os-migration-planner/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

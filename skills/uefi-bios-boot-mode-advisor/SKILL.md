@@ -1,6 +1,6 @@
 ---
 name: uefi-bios-boot-mode-advisor
-description: Advise UEFI and BIOS boot mode decisions by correlating firmware mode, disk style, and boot partition requirements.
+description: Never Get Stuck on Boot Errors Again — Perfect UEFI/BIOS and disk type matching. Eliminate "not bootable" errors forever with expert guidance.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: ⚙️
@@ -18,7 +18,7 @@ metadata:
     - startup mode troubleshooting
 ---
 
-Maps boot firmware mode to disk partition style requirements and provides correction paths for mismatch scenarios. It prevents setup errors caused by incompatible UEFI and BIOS combinations.
+UEFI or BIOS? MBR or GPT? Get the perfect match every time. No more "not bootable" errors, no more failed installs. Your firmware and disk type, perfectly aligned.
 
 ## Best Use Cases
 
@@ -39,10 +39,6 @@ Maps boot firmware mode to disk partition style requirements and provides correc
 > Run the following commands from the **skill directory** (e.g., `skills/uefi-bios-boot-mode-advisor/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

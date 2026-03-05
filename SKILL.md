@@ -1,6 +1,6 @@
 ---
 name: easeus-skills
-description: Instantly pinpoint the ideal EaseUS workflow for any disk or partition challenge—safety checks, guided fallbacks, and risk-aware steps built in.
+description: Your Ultimate Disk Problem Solver — Instantly find the perfect solution for any disk or partition issue. From boot failures to data recovery, we've got you covered.
 metadata:
   homepage: https://www.easeus.com/
   emoji: ⚙️

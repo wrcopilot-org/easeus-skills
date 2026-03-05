@@ -1,6 +1,6 @@
 ---
 name: exfat-fat32-compatibility-converter
-description: Plan exFAT and FAT32 compatibility conversions for removable media with device-target checks and clear fallback options.
+description: Fix Any USB Compatibility Issue in One Click — Convert between exFAT and FAT32 to make your drives work perfectly with game consoles, cameras, TVs, and legacy devices.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🔄
@@ -18,7 +18,7 @@ metadata:
     - camera storage format guidance
 ---
 
-Helps you choose and execute exFAT or FAT32 compatibility paths based on target device limits. It prioritizes conversion methods first and uses full format paths only when conversion is not applicable.
+USB works on PC but fails on game console? Camera won't read your card? TV shows "unsupported format"? Get perfect exFAT/FAT32 conversion that makes your drives work everywhere — no trial and error.
 
 ## Best Use Cases
 
@@ -39,10 +39,6 @@ Helps you choose and execute exFAT or FAT32 compatibility paths based on target 
 > Run the following commands from the **skill directory** (e.g., `skills/exfat-fat32-compatibility-converter/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

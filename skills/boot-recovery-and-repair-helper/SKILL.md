@@ -1,9 +1,9 @@
 ---
 name: boot-recovery-and-repair-helper
-description: Recover non-booting Windows systems with staged boot repair, media creation, and partition recovery decision paths.
+description: Revive Your Dead PC in Minutes — One-click bootable USB creation, automatic MBR rebuild, and lost partition recovery. No tech expertise needed.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
-  emoji: ⚙️
+  emoji: 🚀
   os: Windows 10+
   keywords:
     - windows boot recovery helper
@@ -18,7 +18,7 @@ metadata:
     - emergency boot repair steps
 ---
 
-Provides a staged no-boot recovery flow, from diagnostics to boot repair and media-assisted recovery. It emphasizes risk-aware sequencing and explicit stop points when full restoration is uncertain.
+From black screen to perfect boot — one-stop solution for all Windows startup failures. Auto-detect root causes, one-click bootable USB creation, smart MBR and boot record rebuild. Get your dead PC running again.
 
 ## Best Use Cases
 
@@ -39,10 +39,6 @@ Provides a staged no-boot recovery flow, from diagnostics to boot repair and med
 > Run the following commands from the **skill directory** (e.g., `skills/boot-recovery-and-repair-helper/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

@@ -1,9 +1,9 @@
 ---
 name: safe-reformat-copilot
-description: Guide reformat workflows with explicit risk labeling, backup gates, and post-format verification to avoid preventable mistakes.
+description: Format with Complete Confidence — Smart backup reminders, risk assessment, and post-format validation. Your data stays protected, every time.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
-  emoji: 🔄
+  emoji: 💽
   os: Windows 10+
   keywords:
     - reformat hard drive checklist
@@ -18,7 +18,7 @@ metadata:
     - post format validation steps
 ---
 
-Controls destructive reformat workflows through strict preflight checks, explicit warning language, and verification steps after execution. It does not frame destructive operations as no-loss actions.
+Smart pre-format checks, one-click backup reminders, crystal-clear risk levels. Auto-verify results after format. Every move reversible, every piece of data recoverable.
 
 ## Best Use Cases
 
@@ -40,10 +40,6 @@ Controls destructive reformat workflows through strict preflight checks, explici
 > Run the following commands from the **skill directory** (e.g., `skills/safe-reformat-copilot/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 

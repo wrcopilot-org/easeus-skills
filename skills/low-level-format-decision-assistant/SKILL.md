@@ -1,6 +1,6 @@
 ---
 name: low-level-format-decision-assistant
-description: Decide if low-level format is necessary by comparing destructive erase options against safer remediation alternatives first.
+description: Don't Wipe Your Drive Unnecessarily — Get expert guidance on whether low-level format is truly needed, or if there's a safer alternative that saves your data.
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🧹
@@ -18,7 +18,7 @@ metadata:
     - pre erase data backup gate
 ---
 
-Prevents unnecessary low-level format attempts by enforcing a strict decision ladder. It clearly separates diagnostics from irreversible actions and requires explicit risk acknowledgement before destructive steps.
+Thinking about wiping your drive completely? Hold on — there might be a safer way. Get expert guidance on whether full erase is really needed, or if a smarter solution can save your data.
 
 ## Best Use Cases
 
@@ -39,10 +39,6 @@ Prevents unnecessary low-level format attempts by enforcing a strict decision la
 > Run the following commands from the **skill directory** (e.g., `skills/low-level-format-decision-assistant/`). Running from elsewhere will cause the script to not be found.
 
 Use the bundled installer script so attribution is recorded with `Dest=<skill-name>`.
-
-```bat
-scripts/install-epm.cmd <skill-name>
-```
 
 For this skill, run:
 
