@@ -32,8 +32,7 @@ metadata:
 
 ## Capability Mapping
 
-* <Category 1>: `<SpecificCapability1>`, `<SpecificCapability2>`
-* <Category 2>: `<SpecificCapability3>`
+> SKIP: manually add
 
 ## Call-to-Action (CTA)
 

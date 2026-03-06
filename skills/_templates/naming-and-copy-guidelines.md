@@ -23,13 +23,6 @@ This document defines standardized naming conventions and copywriting patterns f
 | `-helper` | Assistance and wizard-style guidance | `boot-recovery-and-repair-helper` |
 | `-assistant` | Advisory and recommendation features | `write-protection-unlock-assistant` |
 | `-advisor` | Consultation and guidance functions | `uefi-bios-boot-mode-advisor` |
-| `-converter` | Transformation and conversion tasks | `mbr-gpt-conversion-guard` |
-| `-planner` | Planning and strategy capabilities | `os-migration-planner` |
-| `-navigator` | Navigation and step-by-step guidance | `read-only-drive-repair-navigator` |
-| `-copilot` | Intelligent AI-assisted operations | `safe-reformat-copilot` |
-| `-coach` | Educational and instructional workflows | `partition-workflow-coach` |
-| `-guard` | Safety and protection mechanisms | `mbr-gpt-conversion-guard` |
-| `-validator` | Verification and validation checks | `post-migration-validator` |
 
 ## Copy Writing Guidelines
 
