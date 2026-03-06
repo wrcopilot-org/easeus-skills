@@ -47,6 +47,8 @@ If installation or usage issues occur, check the support center first:
   * Path: `skills/exfat-fat32-compatibility-converter/SKILL.md`
 * `low-level-format-decision-assistant`: Evaluate whether low-level formatting is truly required and prioritize safer alternatives.
   * Path: `skills/low-level-format-decision-assistant/SKILL.md`
+* `merge-partition-coach`: Combine adjacent or non-adjacent partitions into one larger volume without data loss.
+  * Path: `skills/merge-partition-coach/SKILL.md`
 * `mbr-gpt-conversion-guard`: Validate firmware mode and boot compatibility before MBR/GPT conversion.
   * Path: `skills/mbr-gpt-conversion-guard/SKILL.md`
 * `os-migration-planner`: Plan OS migration to SSD and verify bootability before and after migration.
