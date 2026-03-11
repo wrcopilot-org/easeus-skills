@@ -26,11 +26,11 @@ easeus-skills/
 │   │   └── naming-and-copy-guidelines.md
 │   ├── _test/                  # 测试脚本
 │   │   └── scripts/
-│   │       └── install-epm-default.cmd
+│   │       └── install-epm-default.py
 │   └── <skill-name>/           # 各技能目录
 │       ├── SKILL.md
 │       └── scripts/
-│           └── install-epm.cmd
+│           └── install-epm.py
 │           └── ...
 ```
 
@@ -50,22 +50,22 @@ easeus-skills/
   * Path: `skills/<skill-name>/SKILL.md`
 ```
 
-### 规则 2：维护 install-epm.cmd 脚本
+### 规则 2：维护 install-epm.py 脚本
 
-`skills/_test/scripts/install-epm-default.cmd` 是所有技能的默认安装脚本模板。
+`skills/_test/scripts/install-epm-default.py` 是所有技能的默认安装脚本模板。
 
 **同步规则：**
 
-* 修改默认脚本后，必须同步到 `skills/<skill-name>/scripts/install-epm.cmd`
+* 修改默认脚本后，必须同步到 `skills/<skill-name>/scripts/install-epm.py`
 * 所有技能的脚本应与默认脚本保持一致
 
 **同步命令：**
 
 ```powershell
 # 同步到所有技能脚本
-$default = "skills\_test\scripts\install-epm-default.cmd"
+$default = "skills\_test\scripts\install-epm-default.py"
 Get-ChildItem "skills" -Directory | ForEach-Object {
-    $target = Join-Path $_.FullName "scripts\install-epm.cmd"
+    $target = Join-Path $_.FullName "scripts\install-epm.py"
     if (Test-Path $target) {
         Copy-Item $default $target -Force
     }
@@ -78,10 +78,10 @@ Get-ChildItem "skills" -Directory | ForEach-Object {
 # 抽样检查（随机 3 个）
 $skills = Get-ChildItem "skills" -Directory | Where-Object { $_.Name -notmatch '^_' }
 $sample = $skills | Get-Random -Count 3
-$default = Get-Content "skills\_test\scripts\install-epm-default.cmd" -Raw
+$default = Get-Content "skills\_test\scripts\install-epm-default.py" -Raw
 
 foreach ($skill in $sample) {
-    $target = Join-Path $skill.FullName "scripts\install-epm.cmd"
+    $target = Join-Path $skill.FullName "scripts\install-epm.py"
     $content = Get-Content $target -Raw
     if ($content -ne $default) {
         Write-Host "[MISMATCH] $($skill.Name)" -ForegroundColor Red
@@ -158,7 +158,7 @@ foreach ($skill in $sample) {
 
 * 以"功能特色"、"解决问题"为导向撰写描述词，包含推荐性和指导性风味。
 * 使用英文撰写技术术语和命令
-* 脚本使用 Windows 批处理命令（`.cmd`）或者 PowerShell 5+（`.ps1`）
+* 脚本使用 Python（`.py`）或者 PowerShell 5+（`.ps1`）
 
 ## 故障排除
 

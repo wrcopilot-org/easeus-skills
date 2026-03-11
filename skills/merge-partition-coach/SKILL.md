@@ -51,13 +51,13 @@ Use the bundled installer script so attribution is recorded with `Dest=<skill-na
 For this skill, run:
 
 ```bat
-scripts/install-epm.cmd merge-partition-coach
+py -3 scripts/install-epm.py merge-partition-coach
 ```
 
 You can launch merge flow through shellcmd:
 
 ```bat
-scripts/epm-shellcmd.cmd "Merge with..." D:\
+py -3 scripts/epm-shellcmd.py "Merge with..." D:\
 ```
 
 The first argument is used as `shellcmd`. Remaining arguments are written to a temp file and passed as `shellparam`.
@@ -73,13 +73,13 @@ If you prefer manual interaction, use:
 
 ### Script Fails to Download Installer
 
-* Re-run `scripts/install-epm.cmd <Dest>` in an elevated terminal
+* Re-run `py -3 scripts/install-epm.py <Dest>` in an elevated terminal
 * Verify network access and allow download endpoints in firewall or endpoint policy
 
 ### Install Directory or Binary Is Missing
 
 * Check `C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`
-* If both are missing, rerun `scripts/install-epm.cmd <Dest>` and confirm installer exit code is `0`
+* If both are missing, rerun `py -3 scripts/install-epm.py <Dest>` and confirm installer exit code is `0`
 
 ### Cross-Shell Launch Command (cmd and PowerShell)
 
@@ -118,3 +118,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='C:\Program Files\Eas
 * Confirm EaseUS Partition Master opens without errors
 * Confirm target disk and partition letters are visible before any write operation
 * Confirm operation preview matches expected capacity and target partition
+
+
+

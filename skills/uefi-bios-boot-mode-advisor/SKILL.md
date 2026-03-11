@@ -43,7 +43,7 @@ Use the bundled installer script so attribution is recorded with `Dest=<skill-na
 For this skill, run:
 
 ```bat
-scripts/install-epm.cmd uefi-bios-boot-mode-advisor
+py -3 scripts/install-epm.py uefi-bios-boot-mode-advisor
 ```
 
 If you prefer manual human interaction, use:
@@ -53,13 +53,13 @@ If you prefer manual human interaction, use:
 
 ### Script Fails to Download Installer
 
-* Re-run `scripts/install-epm.cmd <Dest>` in an elevated terminal
+* Re-run `py -3 scripts/install-epm.py <Dest>` in an elevated terminal
 * Verify network access and allow download endpoints in firewall or endpoint policy
 
 ### Install Directory or Binary Is Missing
 
 * Check `C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`
-* If both are missing, rerun `scripts/install-epm.cmd <Dest>` and confirm installer exit code is `0`
+* If both are missing, rerun `py -3 scripts/install-epm.py <Dest>` and confirm installer exit code is `0`
 
 ### Cross-Shell Launch Command (cmd and PowerShell)
 
@@ -85,3 +85,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='C:\Program Files\Eas
 * Confirm EaseUS Partition Master opens without errors
 * Confirm the target disk appears before any write operation
 * Confirm your planned operation preview matches expected outcome
+
+
+

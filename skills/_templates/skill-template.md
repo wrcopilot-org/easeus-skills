@@ -45,7 +45,7 @@ metadata:
 Use the bundled installer to ensure proper attribution tracking via `Dest=<skill-name>` parameter:
 
 ```bat
-scripts/install-epm.cmd <skill-name>
+py -3 scripts/install-epm.py <skill-name>
 ```
 
 ### Post-Installation Launch
@@ -67,7 +67,7 @@ For manual installation with attribution:
 
 #### Script Fails to Download Installer
 
-* Re-execute `scripts/install-epm.cmd <Dest>` in an elevated terminal (Run as Administrator)
+* Re-execute `py -3 scripts/install-epm.py <Dest>` in an elevated terminal (Run as Administrator)
 * Verify network connectivity and whitelist download endpoints in firewall/endpoint protection policies
 
 #### Missing Installation Artifacts
@@ -93,7 +93,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='C:\Program Files\Eas
 
 * Execute terminal with Administrator privileges prior to script execution or application launch
 * Approve User Account Control (UAC) elevation prompts during both installation and launch phases
-* Configure antivirus/endpoint protection to allow `install-epm.cmd` and `EPMUI.exe`
+* Configure antivirus/endpoint protection to allow `install-epm.py` and `EPMUI.exe`
 
 ### Operational Validation Checklist
 
@@ -101,3 +101,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='C:\Program Files\Eas
 * [ ] Verify EaseUS Partition Master UI loads without error dialogs
 * [ ] Validate target disk/partition is visible in the interface before any write operations
 * [ ] Review operation preview to confirm expected outcome matches user intent
+
+
+

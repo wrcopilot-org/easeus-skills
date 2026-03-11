@@ -26,7 +26,7 @@ When the installation directory or binary is not present:
 * Validate the default installation path: `C:\Program Files\EaseUS\EaseUS Partition Master\bin\EPMUI.exe`
 * Check alternative locations if custom installation paths were specified
 * Review installation logs for error codes (exit code `0` indicates success)
-* Re-run `scripts/install-epm.cmd <Dest>` with administrative privileges if files are absent
+* Re-run `py -3 scripts/install-epm.py <Dest>` with administrative privileges if files are absent
 
 ### Cross-Shell Launch Procedures
 
@@ -83,3 +83,5 @@ Before executing disk operations, confirm the following:
 
 > [!TIP]
 > [Optional: Proactive recommendation to avoid this issue]
+
+
