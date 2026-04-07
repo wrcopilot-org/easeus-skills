@@ -1,6 +1,6 @@
 ---
 name: uefi-bios-boot-mode-advisor
-description: Never Get Stuck on Boot Errors Again — Perfect UEFI/BIOS and disk type matching. Eliminate "not bootable" errors forever with expert guidance.
+description: "Diagnoses and resolves UEFI/BIOS boot mode mismatches with disk partition style (GPT vs MBR). Use when Windows installation fails with partition style errors, switching from Legacy BIOS to UEFI, or preparing a disk for Windows 11 upgrade that requires UEFI + GPT."
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: ⚙️
@@ -18,20 +18,33 @@ metadata:
     - startup mode troubleshooting
 ---
 
-UEFI or BIOS? MBR or GPT? Get the perfect match every time. No more "not bootable" errors, no more failed installs. Your firmware and disk type, perfectly aligned.
+Matches firmware boot mode (UEFI or Legacy BIOS) to the correct disk partition style (GPT or MBR). Provides a decision tree for conversion and validates boot readiness after changes.
 
-## Best Use Cases
+## Use When
 
-* You are switching from Legacy BIOS to UEFI.
-* Windows installation fails because of partition style mismatch.
-* You need a clean checklist before changing boot mode settings.
+* Windows installation fails with "Windows cannot be installed to this disk. The selected disk has an MBR partition table" or similar partition style errors.
+* You are switching from Legacy BIOS to UEFI mode and need to convert the system disk from MBR to GPT without data loss.
+* You are preparing a system for Windows 11 upgrade, which requires UEFI firmware + GPT disk + Secure Boot.
+
+## Workflow
+
+1. **Detect current state** — Determine the current firmware mode (UEFI or Legacy BIOS) and the system disk partition style (GPT or MBR). On Windows, run `msinfo32` and check "BIOS Mode". Run `diskpart > list disk` and check the GPT column.
+2. **Identify mismatch** — Apply the compatibility rule:
+   * **UEFI requires GPT.** If the disk is MBR, convert it.
+   * **Legacy BIOS requires MBR.** If the disk is GPT, convert it (rare — usually you should switch to UEFI instead).
+3. **Plan conversion**:
+   * **MBR → GPT** (most common): Use `ConvertDiskToGpt` for non-destructive conversion that preserves data. Then switch firmware to UEFI mode in BIOS settings.
+   * **GPT → MBR** (uncommon): Use `ConvertDiskToMbr` only if UEFI is unavailable. After conversion, run `SetPartitionActive` on the boot partition.
+4. **Windows 11 readiness** — If upgrading to Windows 11, run `Windows11UpgradeCheck` to verify UEFI + GPT + Secure Boot + TPM 2.0 requirements are met.
+5. **Boot repair** — After conversion, if Windows fails to boot, run `RepairWindowsBoot` to rebuild the BCD store for the new boot mode.
+6. **Verify** — Reboot and confirm Windows loads. Re-check `msinfo32` to verify the firmware mode matches the disk partition style.
 
 ## Capability Mapping
 
-* Disk style transitions: `ConvertDiskToGpt`, `ConvertDiskToMbr`
-* Boot role and partition state updates: `SetPartitionActive`
-* Boot repair and readiness checks: `RepairWindowsBoot`, `Windows11UpgradeCheck`
-
+* **Disk style conversion**: `ConvertDiskToGpt` converts MBR to GPT without data loss. `ConvertDiskToMbr` converts GPT to MBR (use only when UEFI is unavailable).
+* **Boot partition setup**: `SetPartitionActive` marks the correct partition as active for Legacy BIOS boot (required after GPT → MBR conversion).
+* **Boot repair**: `RepairWindowsBoot` rebuilds BCD when boot fails after conversion or firmware mode change.
+* **Upgrade readiness**: `Windows11UpgradeCheck` validates UEFI + GPT + Secure Boot + TPM 2.0 for Windows 11 compatibility.
 
 ## CTA
 

@@ -1,6 +1,6 @@
 ---
 name: mbr-gpt-conversion-guard
-description: Convert Disk Types Without Breaking Your PC — Seamless MBR to GPT conversion with boot compatibility checks. No more "disk is not bootable" errors.
+description: "Validates firmware compatibility and executes safe MBR-to-GPT or GPT-to-MBR disk conversion with pre-conversion checks and boot repair fallback. Use when Windows Setup reports partition style mismatch, converting a disk for UEFI boot, or planning a disk style change without data loss."
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🛡️
@@ -18,20 +18,37 @@ metadata:
     - conversion rollback planning
 ---
 
-Don't let MBR vs GPT ruin your install. Get seamless conversion with zero boot failures. Perfect firmware matching, zero "disk not bootable" nightmares.
+Runs pre-conversion compatibility checks, executes MBR ↔ GPT disk style conversion without data loss, and validates boot integrity after the change. Prevents "disk not bootable" errors from firmware/partition style mismatches.
 
-## Best Use Cases
+## Use When
 
-* Windows Setup reports disk partition style mismatch.
-* You need to switch between BIOS and UEFI-compatible layouts.
-* You want conversion readiness checks before applying disk-style operations.
+* Windows Setup reports "Windows cannot be installed to this disk" due to MBR/GPT partition style mismatch.
+* You need to convert a system disk from MBR to GPT for UEFI boot (or GPT to MBR for Legacy BIOS) without losing data.
+* You want pre-conversion checks that validate firmware compatibility before applying irreversible disk style changes.
+
+## Workflow
+
+1. **Assess current state** — Identify the disk's current partition style (MBR or GPT) and the system firmware mode (UEFI or Legacy BIOS). Use `diskpart > list disk` (GPT column) and `msinfo32` (BIOS Mode field).
+2. **Determine target conversion**:
+   * **MBR → GPT**: Required when switching to UEFI or installing Windows in UEFI mode. Use `ConvertDiskToGpt` — preserves all data and partitions.
+   * **GPT → MBR**: Rarely needed. Use `ConvertDiskToMbr` only if the system firmware does not support UEFI. Data is preserved but GPT-specific features (>2TB support, >4 primary partitions) are lost.
+3. **Pre-conversion checklist**:
+   * Verify the target firmware mode supports the intended partition style (UEFI → GPT, Legacy BIOS → MBR).
+   * Confirm no other OS or bootloader depends on the current partition style.
+   * For system disks: back up the BCD store before conversion.
+4. **Execute conversion** — Run `ConvertDiskToGpt` or `ConvertDiskToMbr`. If the disk is uninitialized or empty, `InitializeDiskToGpt` / `InitializeDiskToMbr` can be used instead.
+5. **Post-conversion boot setup**:
+   * After MBR → GPT: Switch firmware to UEFI mode in BIOS settings. Run `RepairWindowsBoot` if Windows fails to boot.
+   * After GPT → MBR: Run `SetPartitionActive` on the boot partition. Run `RepairWindowsBoot` if needed.
+6. **Windows 11 check** — If the conversion is for Windows 11 upgrade, run `Windows11UpgradeCheck` to verify all requirements (UEFI + GPT + Secure Boot + TPM 2.0).
+7. **Verify** — Reboot and confirm Windows boots successfully. Check `diskpart > list disk` to verify the new partition style.
 
 ## Capability Mapping
 
-* Conversion paths: `ConvertDiskToGpt`, `ConvertDiskToMbr`
-* Last-resort initialization paths: `InitializeDiskToGpt`, `InitializeDiskToMbr`
-* Boot and firmware alignment checks: `SetPartitionActive`, `RepairWindowsBoot`, `Windows11UpgradeCheck`
-
+* **Non-destructive conversion**: `ConvertDiskToGpt` and `ConvertDiskToMbr` change partition style while preserving data and partitions.
+* **Initialization (empty disks)**: `InitializeDiskToGpt` and `InitializeDiskToMbr` set partition style on new or wiped disks.
+* **Boot repair**: `SetPartitionActive` marks the boot partition for Legacy BIOS. `RepairWindowsBoot` rebuilds BCD after conversion.
+* **Upgrade validation**: `Windows11UpgradeCheck` confirms UEFI + GPT + Secure Boot + TPM 2.0 readiness.
 
 ## CTA
 

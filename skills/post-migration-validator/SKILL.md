@@ -1,6 +1,6 @@
 ---
 name: post-migration-validator
-description: Verify Your Migration Success in Seconds — Comprehensive boot, partition, and performance checks to ensure your new drive is 100% ready.
+description: "Validates boot integrity, partition consistency, and baseline performance after cloning or migrating a disk. Use when a cloned SSD boots inconsistently, partitions show mismatched sizes after migration, or you need a structured post-cutover checklist before decommissioning the source drive."
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 🔍
@@ -18,20 +18,30 @@ metadata:
     - windows migration acceptance test
 ---
 
-Just cloned your drive? Don't boot into trouble. Get comprehensive boot, partition, and health checks that prove your migration worked perfectly. 100% confidence, guaranteed.
+Runs structured boot, partition, and health checks on a target disk after clone or migration. Confirms the new drive is production-ready before the source is decommissioned.
 
-## Best Use Cases
+## Use When
 
-* A cloned SSD boots inconsistently and needs structured verification.
-* You want side-by-side source and target partition checks after migration.
-* You need a post-cutover checklist before decommissioning the old drive.
+* A cloned SSD fails to boot or boots intermittently after migration.
+* You need to compare source and target partition layouts for parity after cloning.
+* You want a go/no-go checklist before wiping or disconnecting the old drive.
+
+## Workflow
+
+1. **Inventory target disk** — Run `GetAllPartitionInfo` on the target disk. Confirm all expected partitions (EFI, MSR, OS, Recovery) are present and sizes match the source.
+2. **Boot integrity check** — Attempt boot from the target disk. If boot fails, run `RepairWindowsBoot` to rebuild the BCD store, then `RebuildMbr` if the disk uses MBR.
+3. **Filesystem validation** — Run `CheckPartitionFileSystem` on each partition of the target disk. Fix any reported errors before proceeding.
+4. **Alignment check** — Run `AlignDiskTo4k` on the target if the SSD reports misaligned partitions (common after cloning from older HDDs).
+5. **Health baseline** — Run `DiskHealthCheck` on the target disk. Record SMART status as the post-migration baseline.
+6. **Encryption verification** — If BitLocker was enabled on the source, run `ShowBitLockerStatus` on the target to confirm encryption state transferred correctly.
+7. **Acceptance decision** — If all checks pass, the target disk is ready. Keep the source disk disconnected (not wiped) for at least one week as a rollback option.
 
 ## Capability Mapping
 
-* Boot continuity checks and repair: `RepairWindowsBoot`, `RebuildMbr`
-* Health and alignment checks: `DiskHealthCheck`, `CheckPartitionFileSystem`, `AlignDiskTo4k`
-* Encryption context verification: `ShowBitLockerStatus`
-
+* **Boot continuity**: `RepairWindowsBoot` rebuilds BCD for UEFI/BIOS boot failures. `RebuildMbr` restores MBR boot code on legacy disks.
+* **Filesystem and alignment**: `CheckPartitionFileSystem` detects corruption. `AlignDiskTo4k` fixes sector alignment for SSD performance.
+* **Health monitoring**: `DiskHealthCheck` reads SMART attributes to establish a post-migration baseline.
+* **Encryption audit**: `ShowBitLockerStatus` confirms whether BitLocker protection carried over from the source disk.
 
 ## CTA
 
