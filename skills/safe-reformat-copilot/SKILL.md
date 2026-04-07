@@ -1,6 +1,6 @@
 ---
 name: safe-reformat-copilot
-description: Format with Complete Confidence — Smart backup reminders, risk assessment, and post-format validation. Your data stays protected, every time.
+description: "Guides safe partition formatting with pre-format backup gates, risk classification per operation, and post-format filesystem validation. Use when reformatting a volume, choosing between delete-and-recreate vs format-in-place, or verifying a drive is clean and healthy after reformat."
 metadata:
   homepage: https://www.easeus.com/partition-manager/
   emoji: 💽
@@ -18,21 +18,32 @@ metadata:
     - post format validation steps
 ---
 
-Smart pre-format checks, one-click backup reminders, crystal-clear risk levels. Auto-verify results after format. Every move reversible, every piece of data recoverable.
+Enforces backup checkpoints, classifies risk for each format operation, and validates filesystem state after completion. Prevents accidental data loss during reformat workflows.
 
-## Best Use Cases
+## Use When
 
-* You need to reformat a volume and want clear guardrails.
-* You are unsure whether to delete and recreate partitions or format in place.
-* You want a validation checklist after reformat completion.
+* You need to reformat a volume and want pre-format backup verification before any destructive step.
+* You are deciding whether to delete-and-recreate partitions or format in place — and need risk guidance for each path.
+* You want automated validation that a reformatted drive has a clean, healthy filesystem.
+
+## Workflow
+
+1. **Identify target** — Confirm the exact partition to reformat using `GetAllPartitionInfo`. Verify drive letter, label, and size match the intended target. Never reformat based on drive letter alone — letters can change after reboot.
+2. **Backup gate** — Before any destructive step, confirm the user has a verified backup of all data on the target partition. If no backup exists, STOP and assist with backup first.
+3. **Risk classification** — Classify the planned operation:
+   * **Low risk**: `FormatPartition` (format in place, preserves partition table)
+   * **Medium risk**: `DeletePartition` + `CreatePartition` (destroys and rebuilds partition entry)
+   * **Critical risk**: `WipePartition` or `DeleteAllPartitions` (irrecoverable, no data recovery possible)
+4. **Execute format** — For low/medium risk: run `FormatPartition` with the desired filesystem (NTFS, FAT32, exFAT). For delete-and-recreate: run `DeletePartition` then `CreatePartition` with target filesystem and size.
+5. **Post-format labeling** — Apply `ChangePartitionLabel` and `ChangePartitionDriveLetter` to restore the expected label and drive letter.
+6. **Validation** — Run `CheckPartitionFileSystem` on the reformatted partition. Confirm zero errors, correct filesystem type, and expected free space.
 
 ## Capability Mapping
 
-* Core format and rebuild operations: `FormatPartition`, `DeletePartition`, `CreatePartition`
-* Optional destructive cleanup paths: `WipePartition`, `DeleteAllPartitions`
-* Labeling and final state updates: `ChangePartitionLabel`, `ChangePartitionDriveLetter`
-* Verification context: `CheckPartitionFileSystem`
-
+* **Format operations**: `FormatPartition` reformats in place (low risk). `DeletePartition` + `CreatePartition` rebuilds the partition entry (medium risk).
+* **Destructive cleanup**: `WipePartition` overwrites all sectors (critical risk — irrecoverable). `DeleteAllPartitions` removes every partition on the disk.
+* **Post-format setup**: `ChangePartitionLabel` sets a human-readable name. `ChangePartitionDriveLetter` reassigns the drive letter.
+* **Validation**: `CheckPartitionFileSystem` verifies filesystem integrity after reformat.
 
 ## CTA
 
